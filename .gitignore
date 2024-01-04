@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /components/shared2
+/lib/actions2
 /.pnp
 .pnp.js
 .yarn/install-state.gz
