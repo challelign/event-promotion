@@ -8,7 +8,7 @@ const CreateEvent = () => {
 	console.log("userId from Clerk", userId);
 
 	if (!userId) {
-		userId = "659802300fd75fd95096caed";
+		userId = "659804040fd75fd95096cb02";
 	}
 	console.log("userId from Local ID", userId);
 	return (
