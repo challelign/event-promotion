@@ -4,6 +4,7 @@ import {
 	CreateEventParams,
 	DeleteEventParams,
 	GetAllEventsParams,
+	GetEventsByUserParams,
 	GetRelatedEventsByCategoryParams,
 	UpdateEventParams,
 } from "@/types";
