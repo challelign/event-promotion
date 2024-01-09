@@ -19,10 +19,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
 	});
 
 	// console.log(events);
-
+	// sm:640px md:768px  lg:1024px xl:1280px 2xl:1536px
 	return (
 		<>
-			<section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10  ">
+			<section className="bg-primary-50 bg-dotted-pattern bg-contain py-3 md:py-5 ">
+				{/* <p className=" bg-red-800 max-w-6xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full   text-white">
+					chalie
+				</p> */}
 				<div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
 					<div className="flex flex-col justify-center gap-8">
 						<h1 className="h1-bold">
