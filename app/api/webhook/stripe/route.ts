@@ -31,7 +31,9 @@ export async function POST(request: Request) {
 			createdAt: new Date(),
 		};
 
+		console.log("order from strip webhook=>", order);
 		const newOrder = await createOrder(order);
+		console.log("newOrder from strip webhook=>", newOrder);
 		return NextResponse.json({ message: "OK", order: newOrder });
 	}
 
