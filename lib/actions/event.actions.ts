@@ -24,6 +24,9 @@ const populateEvent = async (query: any) => {
 		})
 		.populate({ path: "category", model: Category, select: "_id name" });
 };
+const getCategoryByName = async (name: string) => {
+	return Category.findOne({ name: { $regex: name, $options: "i" } });
+};
 export const createEvent = async ({
 	event,
 	userId,
@@ -63,35 +66,48 @@ export const getEventById = async (eventId: string) => {
 	}
 };
 
-export const getAllEvents = async ({
+// GET ALL EVENTS
+export async function getAllEvents({
 	query,
 	limit = 6,
 	page,
 	category,
-}: GetAllEventsParams) => {
+}: GetAllEventsParams) {
 	try {
 		await connectToDatabase();
 
-		const conditions = {};
-		const eventQuery = Event.find(conditions)
+		const titleCondition = query
+			? { title: { $regex: query, $options: "i" } }
+			: {};
+
+		const categoryCondition = category
+			? await getCategoryByName(category)
+			: null;
+
+		const conditions = {
+			$and: [
+				titleCondition,
+				categoryCondition ? { category: categoryCondition._id } : {},
+			],
+		};
+
+		const skipAmount = (Number(page) - 1) * limit;
+		const eventsQuery = Event.find(conditions)
 			.sort({ createdAt: "desc" })
-			.skip(0)
+			.skip(skipAmount)
 			.limit(limit);
 
-		const events = await populateEvent(eventQuery);
-		const eventCount = await Event.countDocuments(conditions);
-		if (!events) {
-			throw new Error("Event nof found");
-		}
+		const events = await populateEvent(eventsQuery);
+		const eventsCount = await Event.countDocuments(conditions);
 
 		return {
 			data: JSON.parse(JSON.stringify(events)),
-			totalPages: Math.ceil(eventCount / limit),
+			totalPages: Math.ceil(eventsCount / limit),
 		};
 	} catch (error) {
 		handleError(error);
 	}
-};
+}
 
 export const deleteEvent = async ({ eventId, path }: DeleteEventParams) => {
 	try {

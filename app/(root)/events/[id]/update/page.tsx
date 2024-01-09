@@ -12,9 +12,9 @@ const UpdateEvent = async ({ params: { id } }: UpdateEventProps) => {
 	const { sessionClaims } = auth();
 	let userId = sessionClaims?.userId as string;
 	if (!userId) {
-		userId = "659804040fd75fd95096cb02";
+		userId = "659802300fd75fd95096caed";
 	}
-	// const userId = "659804040fd75fd95096cb02"
+	// const userId = "659802300fd75fd95096caed"
 
 	console.log("userId", userId);
 	const event = await getEventById(id);
