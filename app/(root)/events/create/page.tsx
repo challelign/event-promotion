@@ -7,9 +7,9 @@ const CreateEvent = () => {
 	let userId = sessionClaims?.userId as string;
 	console.log("userId from Clerk", userId);
 
-	if (!userId) {
-		userId = "659802300fd75fd95096caed";
-	}
+	// if (!userId) {
+	// 	userId = "659802300fd75fd95096caed";
+	// }
 	console.log("userId from Local ID", userId);
 	return (
 		<>

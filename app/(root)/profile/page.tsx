@@ -11,9 +11,9 @@ import React from "react";
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
 	const { sessionClaims } = auth();
 	let userId = sessionClaims?.userId as string;
-	if (!userId) {
-		userId = "659802300fd75fd95096caed";
-	}
+	// if (!userId) {
+	// 	userId = "659802300fd75fd95096caed";
+	// }
 	const ordersPage = Number(searchParams?.orderPage) || 1;
 	const eventsPage = Number(searchParams?.eventsPage) || 1;
 

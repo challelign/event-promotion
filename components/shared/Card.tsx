@@ -16,9 +16,9 @@ type CardProps = {
 const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 	const { sessionClaims } = auth();
 	let userId = sessionClaims?.userId as string;
-	if (!userId) {
-		userId = "659802300fd75fd95096caed";
-	}
+	// if (!userId) {
+	// 	userId = "659802300fd75fd95096caed";
+	// }
 	const isEventCreator = userId === event.organizer._id.toString();
 	return (
 		<div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
