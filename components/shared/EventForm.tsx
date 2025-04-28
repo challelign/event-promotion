@@ -81,6 +81,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 				}
 			} catch (error) {
 				console.log(error);
+				alert("Something went wrong!");
 			}
 		}
 		if (type === "Update") {
@@ -100,6 +101,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 				}
 			} catch (error) {
 				console.log(error);
+				alert("Something went wrong!");
 			}
 		}
 	}

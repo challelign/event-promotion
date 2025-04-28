@@ -33,6 +33,7 @@ export const createEvent = async ({
 	path,
 }: CreateEventParams) => {
 	try {
+		console.log("userId =>", userId);
 		console.log("Event from Server =>", event);
 		await connectToDatabase();
 		const organizer = await User.findById(userId);
