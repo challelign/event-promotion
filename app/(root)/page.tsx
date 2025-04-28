@@ -29,11 +29,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
 				<div className="wrapper grid grid-cols-1 gap-3 md:grid-cols-2 2xl:gap-0">
 					<div className="flex flex-col justify-center gap-4">
 						<h3 className="h3-bold">
-							Host, Connect, Celebrate: Your Events, Our Platform!
+							Host, Connect, Celebrate: Elevate Your Events with Our Premier
+							Platform!
 						</h3>
 						<p className="p-regular-20 md:p-regular-24">
-							Book and learn helpful tips from 3,168+ mentors in world-class
-							companies with our global community.
+							Elevate your events with sessions from 3,000+ top mentors from
+							leading global companies. Join our community and create
+							unforgettable experiences.
 						</p>
 						<Button size="lg" asChild className="button w-full sm:w-fit">
 							<Link href="#events">Explore Now</Link>
@@ -41,10 +43,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
 					</div>
 
 					<Image
-						src="/assets/images/hero1.jpg"
+						// src="/assets/images/hero1.png"
 						// src="/assets/images/hero2.jpg"
 						// src="/assets/images/hero3.jpg"
-						// src="/assets/images/hero.png"
+						src="/assets/images/hero.png"
 						alt="hero"
 						width={1000}
 						height={1000}
